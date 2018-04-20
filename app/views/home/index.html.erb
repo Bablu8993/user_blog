@@ -1,0 +1,44 @@
+<style>
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }
+
+  tr:nth-child(even) {
+      background-color: #dddddd;
+  }
+</style>
+
+<div align="center">
+  <h1>Blog Details</h1>
+</div>
+<div>
+  <table data-toggle="table">
+    <tr>
+      <th><%= "Blog's title" %></th>
+      <th><%= "Blog View" %></th>
+      <th><%= "Writer Name" %></th>
+      <th><%= "Read Blog" %></th>
+      <th><%= "Edit Blog" %></th>
+
+    </tr>
+    <tbody>
+      <% @blogs.each do |blog|%>
+        <tr>
+          <td><%= blog.title %></td>
+          <td><%= blog.text %></td>
+          <td><%= blog.user.email %></td>
+          <td><%= link_to '<i class="fa fa-book fa-lg"></i>'.html_safe , blog_path(blog) %></td>
+          <td><%= link_to '<i class="fa fa-edit fa-lg"></i>'.html_safe , edit_blog_path(blog) %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </tabel>
+</div>
